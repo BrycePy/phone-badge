@@ -3,13 +3,18 @@ import { FontLoader } from './FontLoader.js';
 import { TextGeometry } from './TextGeometry.js';
 import * as THREE from 'three';
 
+import asset_minit from './assets/minit.png';
+import asset_minitDepth from './assets/minitdepth.png';
+import asset_minitAlpha from './assets/minitalpha.png';
+import asset_font from './assets/optimer_regular.typeface.json?url';
+
 let camera, scene, renderer;
 let mesh;
 
 const loader = new THREE.TextureLoader();
-const texture = loader.load("/minit.png");
-const textureDepth = loader.load("/minitdepth.png");
-const textureAlpha = loader.load("/minitalpha.png");
+const texture = loader.load(asset_minit);
+const textureDepth = loader.load(asset_minitDepth);
+const textureAlpha = loader.load(asset_minitAlpha);
 let plane, torus;
 let minit = new THREE.Group();
 
@@ -19,7 +24,7 @@ animate();
 function createText(){
   const loaderFont = new FontLoader();
   var textMesh1;
-  loaderFont.load('./optimer_regular.typeface.json', function (font) {
+  loaderFont.load(asset_font, function (font) {
       const geometry = new TextGeometry('MINIT', {
           font: font,
           size: 20,

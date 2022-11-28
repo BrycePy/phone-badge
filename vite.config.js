@@ -2,5 +2,8 @@ export default {
   server: {
     host: true
   },
-  base: './'
+  base: './',
+  build: {
+    outDir: 'docs',
+  }
 }
